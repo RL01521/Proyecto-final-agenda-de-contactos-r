@@ -46,6 +46,7 @@
     <Compile Include="Dentista.cs" />
     <Compile Include="Empleado.cs" />
     <Compile Include="GestorCitas.cs" />
+    <Compile Include="GestorContactos.cs" />
     <Compile Include="Paciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
