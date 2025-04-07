@@ -6,61 +6,23 @@ using System.Threading.Tasks;
 
 namespace EL
 {
-    public class Empleado : Contacto
+    public enum Cargo
     {
-
-        public int Id { get; private set; }
-        public string Cargo { get; private set; }
-        public decimal Salario { get; private set; }
-
-
-        public Empleado(int id, string nombre, string telefono, string correo, string cargo, decimal salario)
-            : base(nombre, telefono, correo)
-        {
-            Id = id;
-            Cargo = cargo;
-            Salario = salario;
-        }
-
-
-        public override void MostrarInformacion()
-        {
-            Console.WriteLine($"ID: {Id}");
-            Console.WriteLine($"Nombre: {Nombre}");
-            Console.WriteLine($"Teléfono: {Telefono}");
-            Console.WriteLine($"Correo: {Correo}");
-            Console.WriteLine($"Cargo: {Cargo}");
-            Console.WriteLine($"Salario: {Salario:C}");
-            Console.WriteLine("------------------------");
-        }
+        Dentista,
+        Administrativo
     }
 
-
-    public class EmpleadoGerente
+    public class Empleado : Contacto
     {
-        private List<Empleado> empleados = new List<Empleado>();
+        public Cargo CargoEmpleado { get; set; }
+        public DateTime FechaContratacion { get; set; }
 
-
-        public void AgregarEmpleado(Empleado empleado)
+        public Empleado(string nombre, string apellido, string telefono, string correo, Cargo cargo, DateTime fechaContratacion)
+            : base(nombre, apellido, telefono, correo)
         {
-            empleados.Add(empleado);
-        }
-
-
-        public void MostrarEmpleados()
-        {
-            if (empleados.Count == 0)
-            {
-                Console.WriteLine("No hay empleados registrados.");
-                return;
-            }
-
-            Console.WriteLine("Lista de empleados:");
-            foreach (var empleado in empleados)
-            {
-                empleado.MostrarInformacion();
-            }
-
+            CargoEmpleado = cargo;
+            FechaContratacion = fechaContratacion;
         }
     }
 }
+

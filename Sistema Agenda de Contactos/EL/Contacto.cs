@@ -8,22 +8,24 @@ namespace EL
 {
     public abstract class Contacto
     {
-        private string _nombre;
-        private string _telefono;
-        private string _correo;
+        
+        private static int contadorId = 0;
 
-        public string Nombre { get => _nombre; set => _nombre = value; }
-        public string Telefono { get => _telefono; set => _telefono = value; }
-        public string Correo { get => _correo; set => _correo = value; }
+        public int Id { get; private set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Telefono { get; set; }
+        public string Correo { get; set; }
 
-        public Contacto(string nombre, string telefono, string correo)
+        protected Contacto(string nombre, string apellido, string telefono, string correo)
         {
-            _nombre = nombre;
-            _telefono = telefono;
-            _correo = correo;
+            Id = ++contadorId; 
+            Nombre = nombre;
+            Apellido = apellido;
+            Telefono = telefono;
+            Correo = correo;
         }
-
-        public abstract void MostrarInformacion();
     }
+
 }
 
